@@ -1,11 +1,12 @@
 {
   "name": "react-localized",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "lib/index.js",
-  "directories": {
-    "example": "examples"
-  },
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
     "dev": "webpack-dev-server --progress --open",
     "lint": "eslint src && eslint examples",
@@ -58,12 +59,10 @@
   },
   "dependencies": {
     "axios": "^0.17.0",
+    "babel-runtime": "^6.26.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-redux": "^5.0.6"
-  },
-  "peerDependencies": {
-    "babel-runtime": "^6.26.0"
   }
 }
