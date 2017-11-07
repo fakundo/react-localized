@@ -1,0 +1,69 @@
+{
+  "name": "react-localized",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --progress --open",
+    "lint": "eslint src && eslint examples",
+    "build": "rimraf lib && babel src -d lib",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  },
+  "keywords": [
+    "react",
+    "i18n",
+    "localization",
+    "gettext"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/react-localized"
+  },
+  "author": "Roman Samoylov (https://github.com/fakundo)",
+  "license": "ISC",
+  "devDependencies": {
+    "@fakundo/webpack-po-messages-loader": "^1.0.7",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "date-fns": "^1.29.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.4.0",
+    "html-webpack-plugin": "^2.30.1",
+    "react-dom": "^16.0.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
+  },
+  "dependencies": {
+    "axios": "^0.17.0",
+    "lodash": "^4.17.4",
+    "prop-types": "^15.6.0",
+    "react": "^16.0.0",
+    "react-redux": "^5.0.6"
+  },
+  "peerDependencies": {
+    "babel-runtime": "^6.26.0"
+  }
+}
