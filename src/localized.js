@@ -25,8 +25,7 @@ export const propTypes = {
   ngettext: PropTypes.func,
   pgettext: PropTypes.func,
   npgettext: PropTypes.func,
-  i18n: PropTypes.object,
-  localizedRef: PropTypes.func,
+  i18n: PropTypes.object
 }
 
 export default WrappedComponent =>
@@ -105,11 +104,11 @@ export default WrappedComponent =>
     }
 
     render() {
-      const { localizedRef } = this.props
+      const { localizedRef, ...rest } = this.props
       const locale = this.getLocale()
       const localeData = this.getLocaleData()
       return createElement(WrappedComponent, {
-        ...this.props,
+        ...rest,
         locale,
         gettext: this.gettext,
         ngettext: this.ngettext,
