@@ -25,7 +25,7 @@ module: {
   rules: [
     {
       test: /\.po$/,
-      use: 'react-localized/message-loader'
+      use: 'react-localized/messages-loader'
     }
   ]
 }
