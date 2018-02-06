@@ -66,6 +66,8 @@ createStore(combineReducers({
 }))
 ```
 
+Note: You can set default locale by setting redux initial state, e.g. { locale: 'ru' }
+
 #### Render LocaleProvider
 
 ```javascript
@@ -116,4 +118,12 @@ export default class Example extends Component {
     )
   }
 }
+```
+
+#### Use redux action to update locale
+
+```javascript
+import { updateLocale } from 'react-localized'
+...
+dispatch(updateLocale('ru'))
 ```
