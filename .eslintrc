@@ -51,5 +51,7 @@
     "function-paren-newline": ["error", "consistent"],
     # Disable semicolon
     "semi": ["error", "never"],
+    # Ignore this rule
+    "react/prop-types": 0,
   }
 }

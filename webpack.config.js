@@ -6,7 +6,6 @@ const port = 3000
 
 module.exports = {
   entry: [
-    'babel-polyfill',
     `webpack-dev-server/client?http://${host}:${port}`,
     path.resolve(__dirname, 'examples/index'),
   ],
@@ -26,6 +25,11 @@ module.exports = {
         use: path.resolve(__dirname, 'messages-loader.js')
       }
     ]
+  },
+  resolve: {
+    alias: {
+      'react-localized/lib': path.resolve(__dirname, 'src')
+    }
   },
   devServer: {
     host,

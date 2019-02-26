@@ -1,7 +1,8 @@
-import { Component, createElement } from 'react'
-import PropTypes from 'prop-types'
 import isArray from 'lodash/isArray'
 import memoize from 'lodash/memoize'
+import { config } from './config'
+
+const { Component, createElement } = config
 
 const memoizedPluralForm = memoize((locale, localeData) => {
   const { messages } = localeData
@@ -19,23 +20,10 @@ const memoizedPluralForm = memoize((locale, localeData) => {
   return n => (n === 1 ? 0 : 1)
 })
 
-export const propTypes = {
-  locale: PropTypes.string,
-  gettext: PropTypes.func,
-  ngettext: PropTypes.func,
-  pgettext: PropTypes.func,
-  npgettext: PropTypes.func,
-  i18n: PropTypes.object
-}
-
-export default WrappedComponent =>
+export default WrappedComponent => (
   class LocalizedComponent extends Component {
-    static propTypes = {
-      localizedRef: PropTypes.func
-    }
-
     static contextTypes = {
-      i18n: PropTypes.object.isRequired
+      i18n: () => {}
     }
 
     getPluralForm(n) {
@@ -56,17 +44,17 @@ export default WrappedComponent =>
     }
 
     getLocale() {
-      const { locale } = this.context.i18n
+      const { i18n: { locale } } = this.context
       return locale
     }
 
     getLocaleData() {
-      const { localeData } = this.context.i18n
+      const { i18n: { localeData } } = this.context
       return localeData || {}
     }
 
     gettext = (...args) => {
-      return this.pgettext(undefined, ...args)
+      return this.pgettext(null, ...args)
     }
 
     pgettext = (context, input, ...injections) => {
@@ -82,12 +70,8 @@ export default WrappedComponent =>
       return this.replaceInjections(output, injections)
     }
 
-    replaceInjections(input, injections) {
-      return input.replace(/{([0-9])}/g, (match, index) => injections[index])
-    }
-
     ngettext = (...args) => {
-      return this.npgettext(undefined, ...args)
+      return this.npgettext(null, ...args)
     }
 
     npgettext = (context, singular, plural, n, ...injections) => {
@@ -103,19 +87,26 @@ export default WrappedComponent =>
       return this.replaceInjections(output, injections)
     }
 
+    replaceInjections(input, injections) {
+      return input.replace(/{([0-9])}/g, (match, index) => (
+        injections[index]
+      ))
+    }
+
     render() {
-      const { localizedRef, ...rest } = this.props
+      const { localizedInnerRef, ...rest } = this.props
       const locale = this.getLocale()
       const localeData = this.getLocaleData()
       return createElement(WrappedComponent, {
         ...rest,
+        ...localeData.extra,
         locale,
         gettext: this.gettext,
         ngettext: this.ngettext,
         pgettext: this.pgettext,
         npgettext: this.npgettext,
-        i18n: localeData.additions,
-        ref: localizedRef
+        ref: localizedInnerRef
       })
     }
   }
+)

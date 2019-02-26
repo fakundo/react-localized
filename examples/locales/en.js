@@ -1,7 +1,7 @@
 import format from 'date-fns/format'
-import { createLocaleData } from '../../src'
+import { createLocale } from '../../src'
 
-export default createLocaleData(null, {
+export default createLocale(null, {
   formatDate: format,
   formats: {
     time: 'HH:mm',
