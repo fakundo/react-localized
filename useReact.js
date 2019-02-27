@@ -1,4 +1,7 @@
-import { Component, createElement } from 'react'
-import { setConfig } from 'react-localized/lib/config'
+var react = require('react')
+var config = require('react-localized/lib/config')
 
-setConfig({ Component, createElement })
+config.setConfig({
+  Component: react.Component,
+  createElement: react.createElement
+})

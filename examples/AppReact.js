@@ -48,6 +48,8 @@ export default class extends Component {
       <LocalizedProvider locales={locales} locale={locale}>
         { ({ locale: currentLocale }) => currentLocale === locale && (
           <div>
+            React
+            <br />
             <Switch
               locale={currentLocale}
               locales={locales}
