@@ -5,7 +5,7 @@
 Internationalization for React and Preact components.
 
 Features:
-- based on `gettext` format. This means that: 
+- based on `gettext` format, it means that: 
   - plural forms are supported
   - translations can be edited by cool editors (for example Poedit)
   - translation files in `.po` format used by this library can be generated automatically by parsing source code
