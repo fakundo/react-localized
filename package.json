@@ -1,6 +1,6 @@
 {
   "name": "react-localized",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Internationalization for React and Preact components",
   "main": "lib/index.js",
   "files": [
@@ -12,8 +12,10 @@
   "scripts": {
     "dev": "webpack-dev-server --progress --open",
     "lint": "eslint src && eslint examples",
-    "build": "rimraf lib && babel src -d lib",
-    "prepublishOnly": "yarn run lint && yarn run build"
+    "clean": "rimraf lib",
+    "compile": "NODE_ENV=commonjs babel src -d lib",
+    "build": "npm run clean && npm run compile",
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "keywords": [
     "react",
