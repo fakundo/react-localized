@@ -37,11 +37,11 @@ module: {
 #### 2. Select React or Preact somewhere in root of your app
 
 ```javascript
-import 'preact-localized/useReact'
+import 'react-localized/useReact'
 ```
 
 ```javascript
-import 'preact-localized/usePreact'
+import 'react-localized/usePreact'
 ```
 
 #### 3. Create locales
