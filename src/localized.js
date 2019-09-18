@@ -13,7 +13,7 @@ const memoizedPluralForm = memoize((locale, localeData) => {
       'n',
       'nplurals',
       'plural',
-      `${messages[''].plural_forms} return plural;`
+      `${messages[''].plural_forms} return ~~plural;`
     )
   }
 

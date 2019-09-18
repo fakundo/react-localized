@@ -5,8 +5,8 @@ export default createLocale(null, {
   formatDate: format,
   formats: {
     time: 'HH:mm',
-    date: 'MM/DD/YYYY',
-    dateTime: 'MM/DD/YYYY HH:mm',
-    humanizedDate: 'MMMM D, YYYY',
+    date: 'MM/dd/yyyy',
+    dateTime: 'MM/dd/yyyy HH:mm',
+    humanizedDate: 'MMMM d, yyyy',
   }
 })

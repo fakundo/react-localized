@@ -7,8 +7,8 @@ export default createLocale(messages, {
   formatDate: (date, formatStr) => format(date, formatStr, { locale }),
   formats: {
     time: 'HH:mm',
-    date: 'DD.MM.YYYY',
-    dateTime: 'DD.MM.YYYY HH:mm',
-    humanizedDate: 'DD MMMM YYYY',
+    date: 'dd.MM.yyyy',
+    dateTime: 'dd.MM.yyyy HH:mm',
+    humanizedDate: 'dd MMMM yyyy',
   }
 })
