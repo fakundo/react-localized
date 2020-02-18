@@ -3,6 +3,7 @@ import yargs from 'yargs'
 import path from 'path'
 import fs from 'fs'
 import gettextParser from 'gettext-parser'
+import mkdirp from 'mkdirp'
 import extract from './extract'
 import merge from './merge'
 
@@ -40,6 +41,8 @@ const { argv } = yargs
 const { source, output, locales, savePot } = argv
 const extractor = extract(source)
 const catalogData = gettextParser.po.parse(extractor.getPotString())
+
+mkdirp.sync(path.resolve(output))
 
 if (savePot) {
   extractor.savePotFile(path.resolve(output, './catalog.pot'))
