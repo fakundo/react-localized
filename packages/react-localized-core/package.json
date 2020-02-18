@@ -1,0 +1,25 @@
+{
+  "name": "react-localized-core",
+  "version": "1.0.0",
+  "description": "Core of react-localized",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint src",
+    "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
+    "clean": "rimraf lib",
+    "build": "yarn run clean && yarn run compile",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/react-localized"
+  },
+  "author": "Roman Samoylov (https://github.com/fakundo)",
+  "license": "MIT"
+}

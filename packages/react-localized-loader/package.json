@@ -1,0 +1,21 @@
+{
+  "name": "react-localized-loader",
+  "version": "1.0.0",
+  "description": "Webpack loader for react-localized",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/react-localized"
+  },
+  "author": "Roman Samoylov (https://github.com/fakundo)",
+  "license": "MIT",
+  "dependencies": {
+    "gettext-parser": "^4.0.2"
+  }
+}

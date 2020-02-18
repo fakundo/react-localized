@@ -1,0 +1,32 @@
+{
+  "name": "react-localized-extractor",
+  "version": "1.0.0",
+  "description": "CLI tool for react-localized for extracting messages from source files",
+  "bin": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev:extract": "yarn run build && node lib -l ru -s ../../examples/src/**/*.js -o ../../examples/locales",
+    "lint": "eslint src",
+    "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap --target node --compress",
+    "clean": "rimraf lib",
+    "build": "yarn run clean && yarn run compile",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/react-localized"
+  },
+  "author": "Roman Samoylov (https://github.com/fakundo)",
+  "license": "MIT",
+  "dependencies": {
+    "gettext-extractor": "^3.5.2",
+    "gettext-parser": "^4.0.2",
+    "plural-forms": "^0.5.1",
+    "yargs": "^15.1.0"
+  }
+}

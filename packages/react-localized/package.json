@@ -1,0 +1,40 @@
+{
+  "name": "react-localized",
+  "version": "3.0.0",
+  "description": "Internationalization for React components",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev:main": "webpack-dev-server --progress --open",
+    "lint": "eslint src && eslint examples",
+    "clean": "rimraf lib",
+    "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
+    "build": "yarn run clean && yarn run compile",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  },
+  "keywords": [
+    "react",
+    "i18n",
+    "localization",
+    "gettext",
+    "internationalization"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/react-localized"
+  },
+  "author": "Roman Samoylov (https://github.com/fakundo)",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0"
+  },
+  "dependencies": {
+    "react-localized-core": "^1.0.0"
+  }
+}

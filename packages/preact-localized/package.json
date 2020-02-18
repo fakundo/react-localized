@@ -1,0 +1,38 @@
+{
+  "name": "preact-localized",
+  "version": "1.0.0",
+  "description": "Internationalization for Preact components",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "lint": "eslint src && eslint examples",
+    "clean": "rimraf lib",
+    "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
+    "build": "yarn run clean && yarn run compile",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  },
+  "keywords": [
+    "preact",
+    "i18n",
+    "localization",
+    "gettext",
+    "internationalization"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fakundo/react-localized"
+  },
+  "author": "Roman Samoylov (https://github.com/fakundo)",
+  "license": "MIT",
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "dependencies": {
+    "react-localized-core": "^1.0.0"
+  }
+}
