@@ -22,7 +22,7 @@ const { argv } = yargs
       alias: 's',
       type: 'string',
       description: 'Source files pattern',
-      default: './src/**/*.(js|ts|jsx|tsx)',
+      default: './src/**/*.@(js|ts|jsx|tsx)',
     },
     output: {
       alias: 'o',

@@ -33,7 +33,7 @@ Options:
   --help         Show help                                             [boolean]
   --locales, -l  List of desired locales                      [array] [required]
   --source, -s   Source files pattern
-                                [string] [default: "./src/**/*.(js|ts|jsx|tsx)"]
+                                [string] [default: "./src/**/*.@(js|ts|jsx|tsx)"]
   --output, -o   Output path                     [string] [default: "./locales"]
   --save-pot     Should save .pot file                [boolean] [default: false]
 ```
