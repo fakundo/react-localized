@@ -1,6 +1,6 @@
 # react-localized / preact-localized
 
-[![npm](https://img.shields.io/npm/v/react-localized.svg)](https://www.npmjs.com/package/react-localized)
+[![npm](https://img.shields.io/npm/v/react-localized.svg)](https://www.npmjs.com/package/react-localized) [![npm](https://img.shields.io/npm/v/preact-localized.svg)](https://www.npmjs.com/package/preact-localized)
 
 Internationalization for React and Preact components.
 
