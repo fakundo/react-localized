@@ -1,6 +1,6 @@
 {
   "name": "react-localized-extractor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool for react-localized for extracting messages from source files",
   "bin": "lib/index.js",
   "files": [
@@ -26,8 +26,8 @@
   "dependencies": {
     "gettext-extractor": "^3.5.2",
     "gettext-parser": "^4.0.2",
+    "mkdirp": "^1.0.3",
     "plural-forms": "^0.5.1",
-    "yargs": "^15.1.0",
-    "mkdirp": "^1.0.3"
+    "yargs": "^15.1.0"
   }
 }
