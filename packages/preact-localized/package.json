@@ -1,6 +1,6 @@
 {
   "name": "preact-localized",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Internationalization for Preact components",
   "main": "lib/index.js",
   "files": [
