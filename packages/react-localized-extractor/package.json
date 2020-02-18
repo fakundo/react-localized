@@ -1,6 +1,6 @@
 {
   "name": "react-localized-extractor",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "CLI tool for react-localized for extracting messages from source files",
   "bin": "lib/index.js",
   "files": [
