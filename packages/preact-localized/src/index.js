@@ -18,3 +18,5 @@ export const useLocales = createUseLocales({
 export const withLocales = createWithLocales({
   createElement, forwardRef, useLocales,
 })
+
+export { createLocale } from 'react-localized-core'

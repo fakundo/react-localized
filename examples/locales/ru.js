@@ -1,6 +1,6 @@
 import format from 'date-fns/format'
 import locale from 'date-fns/locale/ru'
-import { createLocale } from 'react-localized-core'
+import { createLocale } from 'react-localized'
 import messages from './ru.po'
 
 export default createLocale(messages, {

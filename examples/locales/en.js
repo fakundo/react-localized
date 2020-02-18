@@ -1,5 +1,5 @@
 import format from 'date-fns/format'
-import { createLocale } from 'react-localized-core'
+import { createLocale } from 'react-localized'
 
 export default createLocale(null, {
   formatDate: format,
