@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "dev:main": "webpack-dev-server --progress --open",
-    "lint": "eslint src && eslint examples",
+    "lint": "eslint src && eslint ../../examples",
     "clean": "rimraf lib",
     "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
     "build": "yarn run clean && yarn run compile",
