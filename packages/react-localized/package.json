@@ -1,13 +1,13 @@
 {
   "name": "react-localized",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Internationalization for React components",
   "main": "lib/index.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "dev:main": "webpack-dev-server --progress --open",
+    "dev:react": "webpack-dev-server --progress --open",
     "lint": "eslint src && eslint ../../examples",
     "clean": "rimraf lib",
     "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
@@ -35,6 +35,6 @@
     "react-dom": "^16.8.0 || ^17.0.0"
   },
   "dependencies": {
-    "react-localized-core": "^1.0.0"
+    "react-localized-core": "^1.0.1"
   }
 }
