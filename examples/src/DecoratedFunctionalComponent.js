@@ -7,5 +7,7 @@ export default withLocales()(({ gettext, ngettext }) => (
     <br />
     {ngettext('%s apple', '%s apples', 2, 2)}
     <br />
+    {ngettext('%s table', '%s tables', 10, 10)}
+    <br />
   </>
 ))

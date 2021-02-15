@@ -5,7 +5,7 @@ const DEFAULT_LOCALE = 'en'
 const DEFAULT_LOCALE_DATA = createLocale()
 
 const createGetPluralForm = (messages) => {
-  const { headers = {} } = messages
+  const { headers = {} } = messages || {}
 
   const headerKey = Object.keys(headers).find((h) => (
     h.toLowerCase() === PLURAL_FORMS_HEADER
@@ -33,6 +33,7 @@ const replaceInjections = (input, injections) => {
 const createProps = (locale, localeData) => {
   const { messages, extraProps } = localeData
 
+  const getDefaultPluralForm = createGetPluralForm()
   const getPluralForm = createGetPluralForm(messages)
 
   const getTranslations = (context, text) => {
@@ -49,8 +50,9 @@ const createProps = (locale, localeData) => {
 
   const npgettext = (context, singular, plural, n, ...injections) => {
     const translations = getTranslations(context, singular)
-    const pluralForm = getPluralForm(n)
-    const output = translations[pluralForm] || [singular, plural][pluralForm] || singular
+    const output = translations[getPluralForm(n)]
+      || [singular, plural][getDefaultPluralForm(n)]
+      || singular
     return replaceInjections(output, injections)
   }
 

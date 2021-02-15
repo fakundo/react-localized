@@ -2,7 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "preversion": "lerna run lint"
+    "preversion": "lerna run lint",
+    "dev": "lerna run dev:react",
+    "publish:patch": "lerna version patch --force-publish --no-changelog && lerna publish from-package",
+    "publish:minor": "lerna version minor --force-publish --no-changelog && lerna publish from-package",
+    "publish:major": "lerna version major --force-publish --no-changelog && lerna publish from-package"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
