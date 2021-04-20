@@ -1,6 +1,6 @@
 {
   "name": "react-localized",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Internationalization for React components",
   "main": "lib/react-localized.js",
   "module": "lib/react-localized.module.js",
@@ -38,6 +38,6 @@
     "react-dom": "^16.8.0 || ^17.0.0"
   },
   "dependencies": {
-    "react-localized-core": "^1.0.2"
+    "react-localized-core": "^1.0.3"
   }
 }

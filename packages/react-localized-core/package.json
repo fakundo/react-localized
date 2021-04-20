@@ -1,6 +1,6 @@
 {
   "name": "react-localized-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Core of react-localized",
   "main": "lib/react-localized-core.js",
   "module": "lib/react-localized-core.module.js",
