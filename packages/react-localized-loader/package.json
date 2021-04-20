@@ -2,10 +2,17 @@
   "name": "react-localized-loader",
   "version": "1.0.2",
   "description": "Webpack loader for react-localized",
-  "main": "lib/index.js",
+  "main": "lib/react-localized-loader.js",
   "files": [
     "lib"
   ],
+  "scripts": {
+    "lint": "eslint src",
+    "compile": "microbundle -i src -o lib -f cjs --no-sourcemap",
+    "clean": "rimraf lib",
+    "build": "yarn run clean && yarn run compile",
+    "prepublishOnly": "yarn run lint && yarn run build"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

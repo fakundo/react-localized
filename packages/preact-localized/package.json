@@ -2,14 +2,16 @@
   "name": "preact-localized",
   "version": "1.0.4",
   "description": "Internationalization for Preact components",
-  "main": "lib/index.js",
+  "main": "lib/preact-localized.js",
+  "module": "lib/preact-localized.module.js",
+  "exports": "./lib/preact-localized.modern.js",
   "files": [
     "lib"
   ],
   "scripts": {
     "lint": "eslint src",
     "clean": "rimraf lib",
-    "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
+    "compile": "microbundle -i src -o lib -f modern,es,cjs --no-sourcemap",
     "build": "yarn run clean && yarn run compile",
     "prepublishOnly": "yarn run lint && yarn run build"
   },

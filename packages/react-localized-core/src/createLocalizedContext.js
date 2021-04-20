@@ -1,1 +1,3 @@
-export default ({ createContext }) => createContext({})
+export default ({ createContext }) => (
+  createContext({})
+)

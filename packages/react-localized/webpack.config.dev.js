@@ -9,6 +9,7 @@ module.exports = {
     `webpack-dev-server/client?http://${host}:${port}`,
     path.resolve(__dirname, '../../examples/src'),
   ],
+  mode: 'development',
   devtool: 'inline-source-map',
   plugins: [
     new HtmlWebpackPlugin(),
@@ -21,27 +22,20 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [
-              '@babel/preset-env',
-              '@babel/preset-react',
-            ],
-            plugins: [
-              '@babel/plugin-transform-runtime',
-              ['@babel/plugin-proposal-decorators', { legacy: true }],
-            ],
+            configFile: path.resolve(__dirname, '../../.babelrc'),
           },
         },
       },
       {
         test: /\.po$/,
-        use: path.resolve(__dirname, '../react-localized-loader/lib'),
+        use: path.resolve(__dirname, '../react-localized-loader/lib/react-localized-loader.js'),
       },
     ],
   },
   resolve: {
     alias: {
-      'react-localized': path.resolve(__dirname, '../react-localized/src'),
-      'react-localized-core': path.resolve(__dirname, '../react-localized-core/src'),
+      'react-localized': path.resolve(__dirname, '../react-localized'),
+      'react-localized-core': path.resolve(__dirname, '../react-localized-core'),
     },
   },
   devServer: {

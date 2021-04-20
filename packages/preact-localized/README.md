@@ -13,13 +13,28 @@ Features:
 
 - locale data is extendable, for example by adding date formats, currencies, etc.
 
-- locale data can be separated from the main bundle by using dynamic imports
+- locale data can be separated from the main bundle by using dynamic import
 
-## Usage
+### Component example
 
-#### 1. Generate translation `.po` files
+```js
+import { useLocales } from 'preact-localized'
 
-You can use the CLI extractor tool. Extractor generates `.po` files for the desired locales from the source files. If `.po` files already exist, extractor will take translations from them.
+export default () => {
+  const { gettext } = useLocales()
+  return (
+    <>
+      { gettext('Hello, world!') } // Привет, мир!
+    </>
+  )
+}
+```
+
+### Installation and usage
+
+#### 1. Use existing `.po` files with translation or generate them from your project source files
+
+To generate `.po` files you can use the extractor CLI tool. Extractor searches your project source files for functions like `gettext`, `ngettext`, etc. Extractor also can update existing `.po` files without erasing existing translations in those files.
 
 ```console
 npm i react-localized-extractor
@@ -38,25 +53,23 @@ Options:
   --save-pot     Should save .pot file                [boolean] [default: false]
 ```
 
-Usage example
-
 ```console
 react-localized-extractor -l ru -s ./src/**/*.js -o ./locales
 ```
 
-#### 2. Update translations in `.po` files
+#### 2. Add / edit translation in `.po` files
 
-Use your favourite editor for `.po` files. I recommend to use Poedit.
+Use your favourite editor for `.po` files. I recommend you to use `Poedit`.
 
-#### 3. Configure `webpack` loader for `.po` files (optional)
+#### 3. Import `.po` files into your project by using webpack loader (optional)
 
-The loader transforms the contents of the `.po` file to JSON using `gettext-parser`. Therefore, if you don't use `webpack`, you can generate JSON files in your desired way and import them later.
+The loader transforms the contents of the `.po` files to JSON using `gettext-parser`. Therefore, if you are not using `webpack`, you can generate JSON files using this parser and import them into your project. 
 
 ```console
 npm i react-localized-loader
 ```
 
-```javascript
+```js
 module: {
   rules: [
     {
@@ -75,22 +88,22 @@ npm i preact-localized
 
 #### 5. Create locale data
 
-Use second argument for date formats, currencies, etc.
+Use the second argument for extra data such as date formats, currencies, and so on.
 
 Example of the file `ru.js`
 
-```javascript
+```js
 import { createLocale } from 'preact-localized'
 import messages from 'messages/ru.po'
 
-const extraProps = { ... }
+const extra = { ... }
 
-export default createLocale(messages, extraProps)
+export default createLocale(messages, extra)
 ```
 
-#### 6. Render provider
+##### 6. Render provider
 
-```javascript
+```js
 import { LocalizedProvider } from 'preact-localized'
 
 import fr from 'fr.js'
@@ -103,7 +116,9 @@ const locales = { fr, de, ru }
 export default () => (
   <LocalizedProvider locales={locales} selected="fr">
     { ({ localeReady }) => (
-      localeReady ? 'render children' : 'loading locale'
+      localeReady 
+        ? 'render children' 
+        : 'loading locale'
     ) }
   </LocalizedProvider>
 )
@@ -111,11 +126,11 @@ export default () => (
 
 #### 7. Localize components using hook
 
-```javascript
+```js
 import { useLocales } from 'preact-localized'
 
 export default () => {
-  const { gettext, ngettext, ...extraProps } = useLocales()
+  const { gettext, ngettext, ...extra } = useLocales()
   return (
     <>
       { gettext('Hello, world!') } // Привет, мир!
@@ -129,13 +144,13 @@ export default () => {
 
 #### 8. Localize components using HOC (Higher-Order Component)
 
-```javascript
+```js
 import { withLocales } from 'preact-localized'
 
 @withLocales()
 export default class LocalizedComponent extends Component {
   render() {
-    const { gettext, pgettext, formatDate, formats } = this.props // 'formatDate' and 'formats' are extra props passed to the 'createLocale'
+    const { gettext, pgettext, formatDate, formats } = this.props // 'formatDate' and 'formats' are extra data passed to the 'createLocale'
     return (
       <>
         { gettext('My name is %s', 'John') } // Мое имя John
@@ -147,11 +162,13 @@ export default class LocalizedComponent extends Component {
 }
 ```
 
-## See complex example
+### See example
 
-[Example](https://github.com/fakundo/react-localized/tree/master/examples)
+[Demo](http://fakundo.github.io/react-localized/)
+|
+[Source](https://github.com/fakundo/react-localized/tree/master/examples)
 
-## API
+### API
 
 #### LocalizedProvider props
 
@@ -159,15 +176,15 @@ export default class LocalizedComponent extends Component {
 - `selected` - selected locale (default `en`)
 - `children({ localeReady })`
 
-#### Data returned by hook / Props passed to the child of the HOC
+#### Data returned by hook / props passed to the child of the HOC
 
 - `locale`
 - `gettext(input, ...injections)`
 - `ngettext(singular, plural, n, ...injections)`
 - `pgettext(context, input, ...injections)`
 - `npgettext(context, singular, plural, n, ...injections)`
-- `...extraProps` - extra props passed to the `createLocale`
+- `...extra` - extra data passed to the `createLocale`
 
-## License
+### License
 
 MIT

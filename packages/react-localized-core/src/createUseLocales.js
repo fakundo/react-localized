@@ -1,1 +1,3 @@
-export default ({ LocalizedContext, useContext }) => () => useContext(LocalizedContext)
+export default ({ LocalizedContext, useContext }) => () => (
+  useContext(LocalizedContext)
+)

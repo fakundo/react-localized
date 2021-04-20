@@ -1,11 +1,9 @@
 {
   "extends": "airbnb",
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 2017,
-    "ecmaFeatures": {
-      "legacyDecorators": true
-    }
+    "requireConfigFile": false,
+    "ecmaVersion": 2017
   },
   "globals": {
     "window": true,
@@ -18,7 +16,11 @@
     "react/jsx-props-no-spreading": 0,
     "react/jsx-curly-newline": 0,
     "object-curly-newline": 0,
-    "semi": ["error", "never"],
+    "semi": [
+      "error",
+      "never"
+    ],
+    "react/prefer-stateless-function": 0,
     "react/prop-types": 0,
     "no-plusplus": 0
   }

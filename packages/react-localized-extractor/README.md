@@ -2,7 +2,9 @@
 
 [![npm](https://img.shields.io/npm/v/react-localized-extractor.svg)](https://www.npmjs.com/package/react-localized-extractor)
 
-CLI tool extracts the translation messages the from source files and generates `.po` files (merges with existing files).
+CLI tool extracts the translation messages the from source files and generates `.po` files (merging with existing files). 
+
+Part of [react-localized](https://www.npmjs.com/package/react-localized)
 
 ## Usage
 

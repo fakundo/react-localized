@@ -2,13 +2,15 @@
   "name": "react-localized-core",
   "version": "1.0.2",
   "description": "Core of react-localized",
-  "main": "lib/index.js",
+  "main": "lib/react-localized-core.js",
+  "module": "lib/react-localized-core.module.js",
+  "exports": "./lib/react-localized-core.modern.js",
   "files": [
     "lib"
   ],
   "scripts": {
     "lint": "eslint src",
-    "compile": "microbundle -i src -o lib/index.js -f cjs --no-sourcemap",
+    "compile": "microbundle -i src -o lib -f modern,es,cjs --no-sourcemap",
     "clean": "rimraf lib",
     "build": "yarn run clean && yarn run compile",
     "prepublishOnly": "yarn run lint && yarn run build"
