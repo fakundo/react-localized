@@ -152,8 +152,7 @@ export default () => {
 ```js
 import { withLocales } from 'react-localized' // or from 'preact-localized'
 
-@withLocales()
-export default class LocalizedComponent extends Component {
+class LocalizedComponent extends Component {
   render() {
     const { gettext, pgettext, formatDate, formats } = this.props // 'formatDate' and 'formats' are extra data passed to the 'createLocale'
     return (
@@ -165,6 +164,8 @@ export default class LocalizedComponent extends Component {
     )
   }
 }
+
+export default withLocales()(LocalizedComponent)
 ```
 
 ### See example
