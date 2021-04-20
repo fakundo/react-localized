@@ -2,10 +2,11 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "lint": "lerna run lint && eslint ./examples",
     "dev:extract": "lerna run build && lerna run dev:extract",
     "dev": "lerna run build && lerna run dev:react",
     "docs": "lerna run build && lerna run docs:react",
-    "preversion": "lerna run lint",
+    "preversion": "yarn run lint",
     "publish:patch": "lerna version patch --force-publish --no-changelog && lerna publish from-package",
     "publish:minor": "lerna version minor --force-publish --no-changelog && lerna publish from-package",
     "publish:major": "lerna version major --force-publish --no-changelog && lerna publish from-package"

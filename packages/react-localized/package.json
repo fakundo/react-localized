@@ -11,7 +11,7 @@
   "scripts": {
     "docs:react": "webpack --config webpack.config.docs.js",
     "dev:react": "webpack serve --config webpack.config.dev.js",
-    "lint": "eslint src && eslint ../../examples",
+    "lint": "eslint src",
     "clean": "rimraf lib",
     "compile": "microbundle -i src -o lib -f modern,es,cjs --no-sourcemap",
     "build": "yarn run clean && yarn run compile",
