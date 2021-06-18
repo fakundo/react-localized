@@ -3,10 +3,9 @@ import { withLocales } from 'react-localized'
 
 const DecoratedFunctionalComponent = ({ ngettext }) => (
   <>
-    <p>{ngettext('%s apple', '%s apples', 1, 1)}</p>
-    <p>{ngettext('%s apple', '%s apples', 2, 2)}</p>
-    <p>{ngettext('%s apple', '%s apples', 10, 10)}</p>
-    <p>{ngettext('%s table', '%s tables', 5, 5)}</p>
+    <p>1 {ngettext('apple', 'apples', 1)}</p>
+    <p>2 {ngettext('apple', 'apples', 2)}</p>
+    <p>5 {ngettext('apple', 'apples', 5)}</p>
   </>
 )
 

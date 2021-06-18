@@ -2,11 +2,10 @@ import React from 'react'
 import { useLocales } from 'react-localized'
 
 export default () => {
-  const { gettext, pgettext } = useLocales()
+  const { gettext } = useLocales()
   return (
     <>
-      <p>{gettext('Hello, world!')}</p>
-      <p>{pgettext('Context', 'Text with context')}</p>
+      <p>{gettext('Hello, World!')}</p>
     </>
   )
 }

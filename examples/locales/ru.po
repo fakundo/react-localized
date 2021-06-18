@@ -16,32 +16,56 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ../../examples/src/DecoratedClassComponent.js:10
-#: ../../examples/src/DecoratedFunctionalComponent.js:7
-#: ../../examples/src/HookedComponent.js:9
-msgid "%s apple"
-msgid_plural "%s apples"
-msgstr[0] "%s яблоко"
-msgstr[1] "%s яблока"
-msgstr[2] "%s яблок"
+#: ../../examples/src/AliasUsingComponent.js:13
+#: ../../examples/src/TemplateUsingComponent.js:13
+msgid "${} apple"
+msgid_plural "${} apples"
+msgstr[0] "${} яблоко"
+msgstr[1] "${} яблока"
+msgstr[2] "${} яблок"
 
+#: ../../examples/src/DecoratedFunctionalComponent.js:12
+#: ../../examples/src/DecoratedFunctionalComponent.js:16
 #: ../../examples/src/DecoratedFunctionalComponent.js:8
-msgid "%s table"
-msgid_plural "%s tables"
-msgstr[0] "%s стол"
-msgstr[1] "%s стола"
-msgstr[2] "%s столов"
+msgid "apple"
+msgid_plural "apples"
+msgstr[0] "яблоко"
+msgstr[1] "яблока"
+msgstr[2] "яблок"
 
 #: ../../examples/src/HookedComponent.js:8
-msgid "Hello, world!"
-msgstr "Привет, мир!"
+msgid "Hello, World!"
+msgstr "Привет, Мир!"
 
-#: ../../examples/src/DecoratedClassComponent.js:9
-#: ../../examples/src/DecoratedFunctionalComponent.js:6
-msgid "My name is %s"
-msgstr "Мое имя %s"
+#: ../../examples/src/AliasUsingComponent.js:11
+#: ../../examples/src/TemplateUsingComponent.js:11
+msgid "My name is ${}"
+msgstr "Мое имя ${}"
 
-#: ../../examples/src/HookedComponent.js:10
+#: ../../examples/src/AliasUsingComponent.js:14
+#: ../../examples/src/TemplateUsingComponent.js:14
+msgctxt "Context"
+msgid "${} table"
+msgid_plural "${} tables"
+msgstr[0] "${} стол"
+msgstr[1] "${} стола"
+msgstr[2] "${} столов"
+
+#: ../../examples/src/DecoratedClassComponent.js:13
+msgctxt "Context"
+msgid "table"
+msgid_plural "tables"
+msgstr[0] "стол"
+msgstr[1] "стола"
+msgstr[2] "столов"
+
+#: ../../examples/src/DecoratedClassComponent.js:10
 msgctxt "Context"
 msgid "Text with context"
 msgstr "Текст с контекстом"
+
+#: ../../examples/src/AliasUsingComponent.js:12
+#: ../../examples/src/TemplateUsingComponent.js:12
+msgctxt "Context"
+msgid "Text with context ${}"
+msgstr "Текст с контекстом ${}"

@@ -7,7 +7,7 @@
     "lib"
   ],
   "scripts": {
-    "dev:extract": "yarn run build && node lib/react-localized-extractor.js -l ru -s ../../examples/src/**/*.js -o ../../examples/locales",
+    "dev:extract": "yarn run build && node lib/react-localized-extractor.js -l ru -s ../../examples/src/**/*.js -o ../../examples/locales -a.gettext __ -a.ngettext __n -a.pgettext __p -a.npgettext __np",
     "lint": "eslint src",
     "compile": "microbundle -i src -o lib -f cjs --no-sourcemap --target node --compress",
     "clean": "rimraf lib",
@@ -24,10 +24,11 @@
   "author": "Roman Samoylov (https://github.com/fakundo)",
   "license": "MIT",
   "dependencies": {
-    "gettext-extractor": "^3.5.2",
+    "gettext-extractor": "^3.5.3",
     "gettext-parser": "^4.0.2",
     "mkdirp": "^1.0.3",
     "plural-forms": "^0.5.1",
+    "typescript": "^4.3.2",
     "yargs": "^15.1.0"
   }
 }

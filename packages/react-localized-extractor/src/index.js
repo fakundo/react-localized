@@ -4,7 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import gettextParser from 'gettext-parser'
 import mkdirp from 'mkdirp'
-import extract from './extract'
+import configureExtractor from './configureExtractor'
 import merge from './merge'
 
 const { argv } = yargs
@@ -14,8 +14,8 @@ const { argv } = yargs
   .options({
     locales: {
       alias: 'l',
-      type: 'array',
-      description: 'List of desired locales',
+      type: 'string',
+      description: 'List of desired locales (comma separated)',
       require: true,
       requiresArg: true,
     },
@@ -28,18 +28,23 @@ const { argv } = yargs
     output: {
       alias: 'o',
       type: 'string',
-      description: 'Output path',
+      description: 'Output .po files directory',
       default: './locales',
+    },
+    alias: {
+      alias: 'a',
+      type: 'string',
+      description: 'Function alias',
     },
     'save-pot': {
       type: 'boolean',
-      description: 'Should save .pot file',
+      description: 'Should create catalog .pot file in output directory',
       default: false,
     },
   })
 
-const { source, output, locales, savePot } = argv
-const extractor = extract(source)
+const { locales, source, output, alias, savePot } = argv
+const extractor = configureExtractor(source, alias)
 const catalogData = gettextParser.po.parse(extractor.getPotString())
 
 mkdirp.sync(path.resolve(output))
@@ -48,7 +53,7 @@ if (savePot) {
   extractor.savePotFile(path.resolve(output, './catalog.pot'))
 }
 
-locales.forEach((locale) => {
+locales.split(',').forEach((locale) => {
   let existingFile
   try {
     existingFile = fs.readFileSync(path.resolve(output, `./${locale}.po`))

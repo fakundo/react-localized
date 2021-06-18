@@ -1,4 +1,4 @@
-export default (messages, extraProps) => ({
+export default (messages, extra) => ({
   messages: messages || {},
-  extraProps: extraProps || {},
+  extra: extra || {},
 })

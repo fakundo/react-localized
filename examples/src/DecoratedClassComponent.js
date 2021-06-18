@@ -3,12 +3,12 @@ import { withLocales } from 'react-localized'
 
 class DecoratedClassComponent extends Component {
   render() {
-    const { gettext, formats, formatDate } = this.props
+    const { pgettext, npgettext, formats, formatDate } = this.props
     return (
       <>
-        <p>{gettext('My name is %s', 'Anna')}</p>
-        <p>{gettext('My name is %s', 'John')}</p>
         <p>{formatDate(new Date(), formats.date)}</p>
+        <p>{pgettext('Context', 'Text with context')}</p>
+        <p>2 {npgettext('Context', 'table', 'tables', 2)}</p>
       </>
     )
   }
