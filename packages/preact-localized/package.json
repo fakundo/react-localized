@@ -1,6 +1,6 @@
 {
   "name": "preact-localized",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Internationalization for Preact components",
   "main": "lib/preact-localized.js",
   "module": "lib/preact-localized.module.js",
@@ -35,6 +35,6 @@
     "preact": "^10.0.0"
   },
   "dependencies": {
-    "react-localized-core": "^1.1.0"
+    "react-localized-core": "^1.1.1"
   }
 }
