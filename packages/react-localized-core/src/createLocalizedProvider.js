@@ -32,7 +32,7 @@ const createMsgid = (template) => (
 const injectValues = (str, values) => {
   let i = 0
   return str.replace(EXPRESSION_REPLACER_REGEXP, () => (
-    values[i++] || ''
+    values[i++]
   ))
 }
 
