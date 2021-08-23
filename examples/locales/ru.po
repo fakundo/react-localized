@@ -16,34 +16,34 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ../../examples/src/AliasUsingComponent.js:13
-#: ../../examples/src/TemplateUsingComponent.js:13
+#: examples/src/AliasUsingComponent.tsx:12
+#: examples/src/TemplateUsingComponent.tsx:12
 msgid "${} apple"
 msgid_plural "${} apples"
 msgstr[0] "${} яблоко"
 msgstr[1] "${} яблока"
 msgstr[2] "${} яблок"
 
-#: ../../examples/src/DecoratedFunctionalComponent.js:12
-#: ../../examples/src/DecoratedFunctionalComponent.js:16
-#: ../../examples/src/DecoratedFunctionalComponent.js:8
+#: examples/src/DecoratedFunctionalComponent.tsx:5
+#: examples/src/DecoratedFunctionalComponent.tsx:6
+#: examples/src/DecoratedFunctionalComponent.tsx:7
 msgid "apple"
 msgid_plural "apples"
 msgstr[0] "яблоко"
 msgstr[1] "яблока"
 msgstr[2] "яблок"
 
-#: ../../examples/src/HookedComponent.js:8
+#: examples/src/HookedComponent.tsx:7
 msgid "Hello, World!"
 msgstr "Привет, Мир!"
 
-#: ../../examples/src/AliasUsingComponent.js:11
-#: ../../examples/src/TemplateUsingComponent.js:11
+#: examples/src/AliasUsingComponent.tsx:10
+#: examples/src/TemplateUsingComponent.tsx:10
 msgid "My name is ${}"
 msgstr "Мое имя ${}"
 
-#: ../../examples/src/AliasUsingComponent.js:14
-#: ../../examples/src/TemplateUsingComponent.js:14
+#: examples/src/AliasUsingComponent.tsx:13
+#: examples/src/TemplateUsingComponent.tsx:13
 msgctxt "Context"
 msgid "${} table"
 msgid_plural "${} tables"
@@ -51,7 +51,7 @@ msgstr[0] "${} стол"
 msgstr[1] "${} стола"
 msgstr[2] "${} столов"
 
-#: ../../examples/src/DecoratedClassComponent.js:13
+#: examples/src/DecoratedClassComponent.tsx:21
 msgctxt "Context"
 msgid "table"
 msgid_plural "tables"
@@ -59,13 +59,13 @@ msgstr[0] "стол"
 msgstr[1] "стола"
 msgstr[2] "столов"
 
-#: ../../examples/src/DecoratedClassComponent.js:10
+#: examples/src/DecoratedClassComponent.tsx:20
 msgctxt "Context"
 msgid "Text with context"
 msgstr "Текст с контекстом"
 
-#: ../../examples/src/AliasUsingComponent.js:12
-#: ../../examples/src/TemplateUsingComponent.js:12
+#: examples/src/AliasUsingComponent.tsx:11
+#: examples/src/TemplateUsingComponent.tsx:11
 msgctxt "Context"
 msgid "Text with context ${}"
 msgstr "Текст с контекстом ${}"

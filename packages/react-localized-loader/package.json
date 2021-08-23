@@ -7,8 +7,8 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint src",
     "compile": "microbundle -i src -o lib -f cjs --no-sourcemap",
+    "lint": "eslint src",
     "clean": "rimraf lib",
     "build": "yarn run clean && yarn run compile",
     "prepublishOnly": "yarn run lint && yarn run build"

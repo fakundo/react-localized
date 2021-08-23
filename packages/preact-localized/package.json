@@ -12,12 +12,11 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint src",
-    "build": "yarn run clean && yarn run compile",
-    "preact:server": "webpack serve --config webpack.config.dev.js",
-    "preact:clean": "rimraf lib",
     "preact:watch": "microbundle watch --no-sourcemap",
-    "preact:compile": "microbundle --no-sourcemap",
+    "compile": "microbundle --no-sourcemap",
+    "lint": "eslint src",
+    "clean": "rimraf lib",
+    "build": "yarn run clean && yarn run compile",
     "prepublishOnly": "yarn run lint && yarn run build"
   },
   "keywords": [

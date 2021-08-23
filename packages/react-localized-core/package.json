@@ -12,11 +12,11 @@
     "lib"
   ],
   "scripts": {
-    "lint": "eslint src",
-    "build": "yarn run core:clean && yarn run core:compile",
-    "core:clean": "rimraf lib",
     "core:watch": "microbundle --watch --no-sourcemap",
-    "core:compile": "microbundle --no-sourcemap",
+    "compile": "microbundle --no-sourcemap",
+    "lint": "eslint src",
+    "clean": "rimraf lib",
+    "build": "yarn run clean && yarn run compile",
     "prepublishOnly": "yarn run lint && yarn run build"
   },
   "publishConfig": {

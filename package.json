@@ -2,16 +2,18 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "core:watch": "lerna run core:watch --stream",
-    "react:watch": "lerna run react:watch --stream",
-    "react:server": "lerna run react:server --stream",
-    "preact:watch": "lerna run preact:watch --stream",
-    "preact:server": "lerna run preact:server --stream",
     "lint": "lerna run lint && eslint ./examples",
     "preversion": "yarn run lint",
     "publish:patch": "lerna version patch --force-publish --no-changelog && lerna publish from-package",
     "publish:minor": "lerna version minor --force-publish --no-changelog && lerna publish from-package",
-    "publish:major": "lerna version major --force-publish --no-changelog && lerna publish from-package"
+    "publish:major": "lerna version major --force-publish --no-changelog && lerna publish from-package",
+    "core:watch": "lerna run core:watch --stream",
+    "react:watch": "lerna run react:watch --stream",
+    "preact:watch": "lerna run preact:watch --stream",
+    "examples:extract": "node packages/react-localized-extractor/lib/react-localized-extractor.js -l ru -s ./examples/src/**/*.tsx -o ./examples/locales -a.gettext __ -a.ngettext __n -a.pgettext __p -a.npgettext __np",
+    "examples:react": "webpack serve --config examples/webpack.config.react.js",
+    "examples:preact": "webpack serve --config examples/webpack.config.preact.js",
+    "examples:docs": "lerna run build && webpack --config examples/webpack.config.docs.js"
   },
   "devDependencies": {
     "@types/react": "^17.0.19",
