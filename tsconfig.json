@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "react-localized": [
+        "./packages/react-localized/lib/types"
+      ],
+      "preact-localized": [
+        "./packages/preact-localized/lib/types"
+      ],
+      "react-localized-core": [
+        "./packages/react-localized-core/lib/types"
+      ]
+    }
+  }
+}

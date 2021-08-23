@@ -1,5 +1,5 @@
-import React from 'react'
-import { render } from 'react-dom'
+// @ts-ignore
+import { render } from 'lib'
 import App from './App'
 
 const div = document.createElement('div')

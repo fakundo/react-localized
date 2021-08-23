@@ -1,4 +1,3 @@
-import React from 'react'
 import { useLocales } from 'react-localized'
 
 export default () => {

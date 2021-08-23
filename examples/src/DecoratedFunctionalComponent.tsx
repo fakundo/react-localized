@@ -1,4 +1,3 @@
-import React from 'react'
 import { withLocales } from 'react-localized'
 
 const DecoratedFunctionalComponent = ({ ngettext }) => (

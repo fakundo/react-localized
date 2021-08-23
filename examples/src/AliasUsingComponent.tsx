@@ -1,8 +1,7 @@
-import React from 'react'
 import { useLocales } from 'react-localized'
 
 export default () => {
-  const { __, __p, __n, __np } = useLocales()
+  const { __, __p, __n, __np } = useLocales() // eslint-disable-line
   const name = 'Anna'
   const i = 0
   const j = 12

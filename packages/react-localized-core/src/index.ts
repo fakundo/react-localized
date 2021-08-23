@@ -1,3 +1,4 @@
+export * from './types'
 export { default as createLocale } from './createLocale'
 export { default as createLocalizedContext } from './createLocalizedContext'
 export { default as createLocalizedProvider } from './createLocalizedProvider'

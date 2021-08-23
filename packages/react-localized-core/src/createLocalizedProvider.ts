@@ -1,48 +1,49 @@
 /* eslint-disable no-new-func */
+import { LocaleDataMessages, LocaleData, GettextFunctions, GetPluralForm, Alias, AliasObject, CreateLocalizedProviderOptions, LocalizedProviderProps, LocalizedContextValue, LocalizedProviderState } from './types'
 import createLocale from './createLocale'
 
-const GETTEXT = 'gettext'
-const PGETTEXT = 'pgettext'
-const NGETTEXT = 'ngettext'
-const NPGETTEXT = 'npgettext'
 const PLURAL_HEADER = 'plural-forms'
 const DEFAULT_LOCALE = 'en'
 const DEFAULT_LOCALE_DATA = createLocale()
 const EXPRESSION_REPLACER = '${}'
 const EXPRESSION_REPLACER_REGEXP = new RegExp('\\${}', 'g')
 
-const createGetPluralForm = (messages) => {
-  const { headers = {} } = messages || {}
+const createGetPluralForm = (messages?: LocaleDataMessages): GetPluralForm => {
+  const headers = messages?.headers || {}
 
   const headerKey = Object
     .keys(headers)
     .find((h) => h.toLowerCase() === PLURAL_HEADER)
 
-  const header = headers[headerKey]
+  const header = headerKey && headers[headerKey]
 
   return header
-    ? new Function('n', 'nplurals', 'plural', `${header} return ~~plural;`)
+    ? new Function('n', 'nplurals', 'plural', `${header} return ~~plural;`) as GetPluralForm
     : (n) => (n === 1 ? 0 : 1)
 }
 
-const createMsgid = (template) => (
+const createMsgid = (template: string[]): string => (
   template.join(EXPRESSION_REPLACER)
 )
 
-const injectValues = (str, values) => {
+const injectValues = (str: string, values: any[]): string => {
   let i = 0
   return str.replace(EXPRESSION_REPLACER_REGEXP, () => (
     values[i++]
   ))
 }
 
-const normalizeAlias = (derivedAlias) => (
-  typeof derivedAlias === 'string'
-    ? { [GETTEXT]: derivedAlias }
-    : derivedAlias || {}
+const normalizeAlias = (alias: Alias): AliasObject => (
+  typeof alias === 'string'
+    ? { [GettextFunctions.GETTEXT]: alias }
+    : alias || {}
 )
 
-const createProviderValue = (locale, localeData, derivedAlias) => {
+const createProviderValue = (
+  locale: string,
+  localeData: LocaleData,
+  derivedAlias?: Alias,
+): LocalizedContextValue => {
   const { messages, extra } = localeData
   const getDefaultPluralForm = createGetPluralForm()
   const getPluralForm = createGetPluralForm(messages)
@@ -51,7 +52,7 @@ const createProviderValue = (locale, localeData, derivedAlias) => {
     messages?.translations?.[ctx]?.[msgid]?.msgstr?.[plural] || ''
   )
 
-  const translate = (ctx) => (text, ...values) => {
+  const translate = (ctx?) => (text, ...values) => {
     // string template
     if (Array.isArray(text)) {
       const msgid = createMsgid(text)
@@ -62,7 +63,7 @@ const createProviderValue = (locale, localeData, derivedAlias) => {
     return getMessage(ctx, text) || text
   }
 
-  const translatePlural = (ctx) => (text, ...values) => (textPlural, ...pluralValues) => (n) => {
+  const translatePlural = (ctx?) => (text, ...values) => (textPlural, ...pluralValues) => (n) => {
     // string template
     if (Array.isArray(text)) {
       const msgid = createMsgid(text)
@@ -84,21 +85,21 @@ const createProviderValue = (locale, localeData, derivedAlias) => {
       || [text, textPlural][getDefaultPluralForm(n)]
   }
 
-  const value = {
+  const value: LocalizedContextValue = {
     ...extra,
     locale,
-    [GETTEXT]: translate(),
-    [PGETTEXT]: (ctx, text) => (
+    [GettextFunctions.GETTEXT]: translate(),
+    [GettextFunctions.PGETTEXT]: (ctx, text?) => (
       !text
         ? translate(ctx)
         : translate(ctx)(text)
     ),
-    [NGETTEXT]: (text, ...args) => (
+    [GettextFunctions.NGETTEXT]: (text, ...args) => (
       Array.isArray(text)
         ? translatePlural()(text, ...args)
         : translatePlural()(text)(args[0])(args[1])
     ),
-    [NPGETTEXT]: (ctx, text, textPlural, n) => (
+    [GettextFunctions.NPGETTEXT]: (ctx, text?, textPlural?, n?) => (
       !text
         ? translatePlural(ctx)
         : translatePlural(ctx)(text)(textPlural)(n)
@@ -107,11 +108,9 @@ const createProviderValue = (locale, localeData, derivedAlias) => {
 
   if (derivedAlias) {
     const alias = normalizeAlias(derivedAlias)
-    const functions = [GETTEXT, PGETTEXT, NGETTEXT, NPGETTEXT]
-
-    functions.forEach((func) => {
-      if (alias[func]) {
-        value[alias[func]] = value[func]
+    Object.values(GettextFunctions).forEach((funcName) => {
+      if (alias[funcName]) {
+        value[alias[funcName] as string] = value[funcName]
       }
     })
   }
@@ -119,19 +118,26 @@ const createProviderValue = (locale, localeData, derivedAlias) => {
   return value
 }
 
-export default ({
-  LocalizedContext,
-  createElement,
-  useEffect,
-  useState,
-  useMemo,
-}) => (
-  ({
-    selected = DEFAULT_LOCALE,
-    locales = {},
-    children,
-    alias,
-  }) => {
+export default (
+  options: CreateLocalizedProviderOptions,
+) => (
+  props: LocalizedProviderProps,
+  ) => {
+    const {
+      localizedContext,
+      createElement,
+      useEffect,
+      useState,
+      useMemo,
+    } = options
+
+    const {
+      children,
+      alias,
+      locales = {},
+      selected = DEFAULT_LOCALE,
+    } = props
+
     const [localeDataCache, setLocaleDataCache] = useState(null)
     const locale = locales[selected] ? selected : DEFAULT_LOCALE
     const localeData = locales[locale] || DEFAULT_LOCALE_DATA
@@ -162,14 +168,13 @@ export default ({
       value: createProviderValue(locale, finalLocaleData, alias),
     }), [finalLocaleData, alias])
 
-    const childrenValue = useMemo(() => ({
+    const childrenValue: LocalizedProviderState = useMemo(() => ({
       localeReady,
     }), [localeReady])
 
     return createElement(
-      LocalizedContext.Provider,
+      localizedContext.Provider,
       providerProps,
       children(childrenValue),
     )
   }
-)

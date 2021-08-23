@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from 'react'
+// @ts-ignore
+import { useState, useCallback, libName } from 'lib'
 import { LocalizedProvider } from 'react-localized'
 import HookedComponent from './HookedComponent'
 import DecoratedFunctionalComponent from './DecoratedFunctionalComponent'
@@ -16,6 +17,10 @@ export default () => {
 
   return (
     <>
+      <h3>
+        {libName}
+      </h3>
+      <hr />
       <button
         type="button"
         onClick={toggleLocale}

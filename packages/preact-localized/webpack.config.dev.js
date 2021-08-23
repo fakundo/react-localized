@@ -16,7 +16,12 @@ module.exports = {
       {
         test: /\.tsx$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
+        options: {
+          compilerOptions: {
+            jsxImportSource: 'preact',
+          },
+        },
       },
       {
         test: /\.po$/,
@@ -27,8 +32,8 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.js'],
     alias: {
-      'lib': path.resolve(__dirname, '../../examples/src/__react.tsx'), // eslint-disable-line
-      'react-localized': path.resolve(__dirname, '../react-localized'),
+      'lib': path.resolve(__dirname, '../../examples/src/__preact.tsx'), // eslint-disable-line
+      'react-localized': path.resolve(__dirname, '../preact-localized'),
       'react-localized-core': path.resolve(__dirname, '../react-localized-core'),
     },
   },

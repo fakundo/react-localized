@@ -2,19 +2,23 @@
   "name": "react-localized",
   "version": "3.1.1",
   "description": "Internationalization for React components",
+  "source": "src/index.ts",
+  "types": "./lib/types/index.d.ts",
   "main": "lib/react-localized.js",
   "module": "lib/react-localized.module.js",
   "exports": "./lib/react-localized.modern.js",
+  "unpkg": "./lib/react-localized.umd.js",
   "files": [
     "lib"
   ],
   "scripts": {
-    "docs:react": "webpack --config webpack.config.docs.js",
-    "dev:react": "webpack serve --config webpack.config.dev.js",
     "lint": "eslint src",
-    "clean": "rimraf lib",
-    "compile": "microbundle -i src -o lib -f modern,es,cjs --no-sourcemap",
     "build": "yarn run clean && yarn run compile",
+    "react:docs": "webpack --config webpack.config.docs.js",
+    "react:server": "webpack serve --config webpack.config.dev.js",
+    "react:clean": "rimraf lib",
+    "react:watch": "microbundle watch --no-sourcemap",
+    "react:compile": "microbundle --no-sourcemap",
     "prepublishOnly": "yarn run lint && yarn run build"
   },
   "keywords": [

@@ -1,8 +1,18 @@
-import React, { Component } from 'react'
+// @ts-ignore
+import { Component } from 'lib'
 import { withLocales } from 'react-localized'
 
-class DecoratedClassComponent extends Component {
+interface Props {
+  pgettext: (ctx: string, text: string) => string
+  npgettext: (ctx: string, text: string, textPlural: string, n: number) => string
+  formats: { date: string }
+  formatDate: (date: Date, format: string) => string
+}
+
+// eslint-disable-next-line
+class DecoratedClassComponent extends Component<Props> {
   render() {
+    // @ts-ignore
     const { pgettext, npgettext, formats, formatDate } = this.props
     return (
       <>
