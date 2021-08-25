@@ -1,6 +1,6 @@
 import { withLocales } from 'react-localized'
 
-const DecoratedFunctionalComponent = ({ ngettext }) => (
+const CompDecoratedFunctional = ({ ngettext }) => (
   <>
     <p>1 {ngettext('apple', 'apples', 1)}</p>
     <p>2 {ngettext('apple', 'apples', 2)}</p>
@@ -8,4 +8,6 @@ const DecoratedFunctionalComponent = ({ ngettext }) => (
   </>
 )
 
-export default withLocales()(DecoratedFunctionalComponent)
+const CompDecoratedFunctionalWithLocales = withLocales<{}>()(CompDecoratedFunctional)
+
+export default CompDecoratedFunctionalWithLocales

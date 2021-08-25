@@ -1,11 +1,11 @@
 // @ts-ignore
 import { useState, useCallback, libName } from 'lib'
 import { LocalizedProvider } from 'react-localized'
-import HookedComponent from './HookedComponent'
-import DecoratedFunctionalComponent from './DecoratedFunctionalComponent'
-import DecoratedClassComponent from './DecoratedClassComponent'
-import TemplateUsingComponent from './TemplateUsingComponent'
-import AliasUsingComponent from './AliasUsingComponent'
+import CompHook from './CompHook'
+import CompDecoratedFunctional from './CompDecoratedFunctional'
+import CompDecoratedClass from './CompDecoratedClass'
+import CompTemplates from './CompTemplates'
+import CompAlias from './CompAlias'
 import locales from '../locales'
 
 export default () => {
@@ -42,15 +42,15 @@ export default () => {
           localeReady
             ? (
               <>
-                <HookedComponent />
+                <CompHook />
                 <hr />
-                <DecoratedFunctionalComponent />
+                <CompDecoratedFunctional />
                 <hr />
-                <DecoratedClassComponent />
+                <CompDecoratedClass />
                 <hr />
-                <TemplateUsingComponent />
+                <CompTemplates />
                 <hr />
-                <AliasUsingComponent />
+                <CompAlias />
               </>
             )
             : 'loading locale'

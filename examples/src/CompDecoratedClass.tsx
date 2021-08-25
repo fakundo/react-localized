@@ -10,7 +10,7 @@ interface Props {
 }
 
 // eslint-disable-next-line
-class DecoratedClassComponent extends Component<Props> {
+class CompDecoratedClass extends Component<Props> {
   render() {
     // @ts-ignore
     const { pgettext, npgettext, formats, formatDate } = this.props
@@ -24,4 +24,6 @@ class DecoratedClassComponent extends Component<Props> {
   }
 }
 
-export default withLocales()(DecoratedClassComponent)
+const CompDecoratedClassWithLocales = withLocales()(CompDecoratedClass)
+
+export default CompDecoratedClassWithLocales

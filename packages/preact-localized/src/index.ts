@@ -1,30 +1,28 @@
-import { createContext, createElement } from 'preact'
+import { createContext, createElement, VNode } from 'preact'
 import { useEffect, useState, useContext, useMemo } from 'preact/hooks'
 import { forwardRef } from 'preact/compat'
 import { createLocalizedContext, createLocalizedProvider, createUseLocales, createWithLocales, LocalizedProviderProps, LocalizedContextValue } from 'react-localized-core'
 
 export * from 'react-localized-core'
 
-// @todo
 const localizedContext = createLocalizedContext({
   createContext,
 })
 
-// @todo
-export const LocalizedProvider: (props: LocalizedProviderProps) => JSX.Element = (
+export const LocalizedProvider: (props: LocalizedProviderProps) => preact.JSX.Element = (
   createLocalizedProvider({
     localizedContext, createElement, useEffect, useState, useMemo,
   })
 )
 
-// @todo
 export const useLocales: () => LocalizedContextValue = (
   createUseLocales({
     localizedContext, useContext,
   })
 )
 
-// @todo
-export const withLocales = createWithLocales({
-  createElement, forwardRef, useLocales,
-})
+export const withLocales: <ComponentProps = any>() => (Component: any) => (props: ComponentProps) => preact.JSX.Element = (
+  createWithLocales({
+    createElement, forwardRef, useLocales,
+  })
+)

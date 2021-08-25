@@ -62,11 +62,11 @@ export type Npgettext = {
 export type LocalizedContextValue = {
   [key: string]: any
   [key: number]: any
+  locale: string
   [GettextFunctions.GETTEXT]: Gettext
   [GettextFunctions.PGETTEXT]: Pgettext
   [GettextFunctions.NGETTEXT]: Ngettext
   [GettextFunctions.NPGETTEXT]: Npgettext
-  locale: string
 }
 
 export interface CreateLocalizedContextOptions {
@@ -94,7 +94,7 @@ export interface CreateLocalizedProviderOptions {
 
 export interface LocalizedProviderProps {
   children: (state: LocalizedProviderState) => any // @todo
-  locales?: object // @todo
+  locales?: { [key: string]: LocaleData | (() => Promise<LocaleData>) }
   selected?: string
   alias?: Alias
 }

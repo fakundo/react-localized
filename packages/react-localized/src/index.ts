@@ -3,26 +3,24 @@ import { createLocalizedContext, createLocalizedProvider, createUseLocales, crea
 
 export * from 'react-localized-core'
 
-// @todo
 const localizedContext = createLocalizedContext({
   createContext,
 })
 
-// @todo
 export const LocalizedProvider: (props: LocalizedProviderProps) => JSX.Element = (
   createLocalizedProvider({
     localizedContext, createElement, useEffect, useState, useMemo,
   })
 )
 
-// @todo
 export const useLocales: () => LocalizedContextValue = (
   createUseLocales({
     localizedContext, useContext,
   })
 )
 
-// @todo
-export const withLocales = createWithLocales({
-  createElement, forwardRef, useLocales,
-})
+export const withLocales: <ComponentProps = any>() => (Component: any) => (props: ComponentProps) => JSX.Element = (
+  createWithLocales({
+    createElement, forwardRef, useLocales,
+  })
+)

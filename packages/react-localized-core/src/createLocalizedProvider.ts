@@ -145,7 +145,7 @@ export default (
 
     useEffect(async () => {
       let ignore
-      if (useCache) {
+      if (typeof localeData === 'function') {
         const data = await localeData()
         if (!ignore) {
           setLocaleDataCache(data)
@@ -154,7 +154,7 @@ export default (
       return () => {
         ignore = true
       }
-    }, [useCache, localeData])
+    }, [localeData])
 
     const finalLocaleData = useCache
       ? localeDataCache || DEFAULT_LOCALE_DATA

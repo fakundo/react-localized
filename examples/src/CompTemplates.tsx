@@ -1,6 +1,6 @@
 import { useLocales } from 'react-localized'
 
-export default () => {
+const CompTemplates = () => {
   const { gettext, pgettext, ngettext, npgettext } = useLocales()
   const name = 'John'
   const i = 5
@@ -14,3 +14,5 @@ export default () => {
     </>
   )
 }
+
+export default CompTemplates

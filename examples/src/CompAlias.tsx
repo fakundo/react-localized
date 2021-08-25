@@ -1,6 +1,6 @@
 import { useLocales } from 'react-localized'
 
-export default () => {
+const CompAlias = () => {
   const { __, __p, __n, __np } = useLocales() // eslint-disable-line
   const name = 'Anna'
   const i = 0
@@ -14,3 +14,5 @@ export default () => {
     </>
   )
 }
+
+export default CompAlias

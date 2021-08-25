@@ -1,6 +1,6 @@
 import { useLocales } from 'react-localized'
 
-export default () => {
+const CompHook = () => {
   const { gettext } = useLocales()
   return (
     <>
@@ -8,3 +8,5 @@ export default () => {
     </>
   )
 }
+
+export default CompHook
