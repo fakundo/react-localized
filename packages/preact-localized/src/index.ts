@@ -1,4 +1,4 @@
-import { createContext, createElement, VNode } from 'preact'
+import { createContext, createElement } from 'preact'
 import { useEffect, useState, useContext, useMemo } from 'preact/hooks'
 import { forwardRef } from 'preact/compat'
 import { createLocalizedContext, createLocalizedProvider, createUseLocales, createWithLocales, LocalizedProviderProps, LocalizedContextValue } from 'react-localized-core'
