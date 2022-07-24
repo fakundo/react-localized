@@ -1,6 +1,6 @@
 {
   "name": "react-localized-core",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Core of react-localized",
   "source": "src/index.ts",
   "types": "./lib/types/index.d.ts",

@@ -1,6 +1,6 @@
 {
   "name": "react-localized",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Internationalization for React components",
   "source": "src/index.ts",
   "types": "./lib/types/index.d.ts",
@@ -40,6 +40,6 @@
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "react-localized-core": "^1.2.0"
+    "react-localized-core": "^1.2.1"
   }
 }
