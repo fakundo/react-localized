@@ -2,6 +2,7 @@
   "extends": "airbnb-typescript",
   "parser": "@typescript-eslint/parser",
   "plugins": [
+    "import",
     "@typescript-eslint/eslint-plugin"
   ],
   "globals": {

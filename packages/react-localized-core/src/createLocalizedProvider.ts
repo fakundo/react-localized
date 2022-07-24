@@ -48,7 +48,7 @@ const createProviderValue = (
   const getDefaultPluralForm = createGetPluralForm()
   const getPluralForm = createGetPluralForm(messages)
 
-  const getMessage = (ctx = '', msgid, plural = 0) => (
+  const getMessage = (ctx = '', msgid = '', plural = 0) => (
     messages?.translations?.[ctx]?.[msgid]?.msgstr?.[plural] || ''
   )
 
@@ -143,13 +143,14 @@ export default (
     const localeData = locales[locale] || DEFAULT_LOCALE_DATA
     const useCache = typeof localeData === 'function'
 
-    useEffect(async () => {
+    useEffect(() => {
       let ignore
       if (typeof localeData === 'function') {
-        const data = await localeData()
-        if (!ignore) {
-          setLocaleDataCache(data)
-        }
+        localeData().then(data => {
+          if (!ignore) {
+            setLocaleDataCache(data)
+          }
+        })
       }
       return () => {
         ignore = true

@@ -20,6 +20,8 @@ module.exports = {
         options: {
           compilerOptions: {
             jsxImportSource: 'preact',
+            module: 'esnext',
+            moduleResolution: 'node',
           },
         },
       },

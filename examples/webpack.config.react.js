@@ -16,7 +16,13 @@ module.exports = {
       {
         test: /\.tsx$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
+        options: {
+          compilerOptions: {
+            module: 'esnext',
+            moduleResolution: 'node',
+          },
+        },
       },
       {
         test: /\.po$/,
